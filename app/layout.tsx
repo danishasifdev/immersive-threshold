@@ -26,7 +26,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://threshold.digital"),
+  metadataBase: new URL("https://danishasif.vercel.app/"),
   title: "THRESHOLD — Mathematics Made Visible",
   description:
     "An immersive digital experience exploring the construction of form from void. Watch a Platonic solid emerge from scattered light into crystalline reality.",
