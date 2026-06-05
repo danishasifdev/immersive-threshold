@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface CustomCursorProps {
   isOnLight: boolean;
@@ -29,23 +29,27 @@ export default function CustomCursor({ isOnLight }: CustomCursorProps) {
       coord.style.left = `${e.clientX}px`;
       coord.style.top = `${e.clientY}px`;
 
-      const nx = ((e.clientX / window.innerWidth) - 0.5).toFixed(3);
+      const nx = (e.clientX / window.innerWidth - 0.5).toFixed(3);
       const ny = (-(e.clientY / window.innerHeight - 0.5)).toFixed(3);
       coord.innerHTML = `${nx}<br>${ny}`;
     };
 
     const onOver = (e: MouseEvent) => {
       const t = e.target as HTMLElement;
-      setHovering(!!t.closest('a, button, [data-cursor="hover"], input, select, label, [role="button"]'));
+      setHovering(
+        !!t.closest(
+          'a, button, [data-cursor="hover"], input, select, label, [role="button"]',
+        ),
+      );
     };
 
     const onDown = () => setClicking(true);
     const onUp = () => setClicking(false);
 
-    window.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseover', onOver);
-    window.addEventListener('mousedown', onDown);
-    window.addEventListener('mouseup', onUp);
+    window.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseover", onOver);
+    window.addEventListener("mousedown", onDown);
+    window.addEventListener("mouseup", onUp);
 
     const lerp = (a: number, b: number, n: number) => a + (b - a) * n;
 
@@ -59,20 +63,26 @@ export default function CustomCursor({ isOnLight }: CustomCursorProps) {
     raf.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseover', onOver);
-      window.removeEventListener('mousedown', onDown);
-      window.removeEventListener('mouseup', onUp);
+      window.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseover", onOver);
+      window.removeEventListener("mousedown", onDown);
+      window.removeEventListener("mouseup", onUp);
       cancelAnimationFrame(raf.current);
     };
   }, []);
 
-  const lightClass = isOnLight ? 'on-light' : '';
+  const lightClass = isOnLight ? "on-light" : "";
 
   return (
     <>
-      <div ref={dotRef} className={`cursor-dot ${lightClass} ${hovering ? 'hovering' : ''} ${clicking ? 'clicking' : ''}`} />
-      <div ref={ringRef} className={`cursor-ring ${lightClass} ${hovering ? 'hovering' : ''} ${clicking ? 'clicking' : ''}`} />
+      <div
+        ref={dotRef}
+        className={`cursor-dot ${lightClass} ${hovering ? "hovering" : ""} ${clicking ? "clicking" : ""}`}
+      />
+      <div
+        ref={ringRef}
+        className={`cursor-ring ${lightClass} ${hovering ? "hovering" : ""} ${clicking ? "clicking" : ""}`}
+      />
       <div ref={coordRef} className={`cursor-coords ${lightClass}`} />
     </>
   );

@@ -5,19 +5,19 @@
 /* ====================== DESIGN TOKENS ====================== */
 :root {
   /* THRESHOLD Palette */
-  --void: #0C0B09;
+  --void: #0c0b09;
   --void-soft: #161410;
-  --parchment: #F7F5F2;
-  --parchment-deep: #EFECE8;
+  --parchment: #f7f5f2;
+  --parchment-deep: #efece8;
   --ink: #151515;
-  --ink-soft: #2A2825;
+  --ink-soft: #2a2825;
   --muted: #888178;
-  --muted-light: #B0A898;
-  --gold: #8B7355;
-  --gold-light: #B09B78;
+  --muted-light: #b0a898;
+  --gold: #8b7355;
+  --gold-light: #b09b78;
   --gold-dim: rgba(139, 115, 85, 0.15);
-  --slate: #4A5B72;
-  --slate-light: #6B7E96;
+  --slate: #4a5b72;
+  --slate-light: #6b7e96;
 
   --font-serif: var(--font-cormorant);
   --font-sans: var(--font-dm-sans);
@@ -29,7 +29,13 @@
 }
 
 /* ====================== RESET ====================== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   font-size: 16px;
@@ -42,16 +48,20 @@ html {
 body {
   background: var(--void);
   color: var(--parchment);
-  font-family: var(--font-sans), 'Helvetica Neue', sans-serif;
+  font-family: var(--font-sans), "Helvetica Neue", sans-serif;
   font-weight: 300;
   overflow-x: hidden;
   cursor: none;
 }
 
-body::-webkit-scrollbar { width: 0; }
+body::-webkit-scrollbar {
+  width: 0;
+}
 
 @media (max-width: 768px) {
-  body { cursor: auto; }
+  body {
+    cursor: auto;
+  }
 }
 
 /* ====================== TAILWIND BASE ====================== */
@@ -78,19 +88,26 @@ body::-webkit-scrollbar { width: 0; }
     --ring: 32 22% 44%;
     --radius: 0rem;
   }
-  * { @apply border-border; }
+  * {
+    @apply border-border;
+  }
 }
 
 /* ====================== TYPOGRAPHY SYSTEM ====================== */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif), 'Georgia', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif), "Georgia", serif;
   font-weight: 300;
   letter-spacing: -0.02em;
   line-height: 1.05;
 }
 
 .t-display {
-  font-family: var(--font-serif), 'Georgia', serif;
+  font-family: var(--font-serif), "Georgia", serif;
   font-size: clamp(4.5rem, 12vw, 13rem);
   font-weight: 300;
   line-height: 0.9;
@@ -98,7 +115,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .t-hero {
-  font-family: var(--font-serif), 'Georgia', serif;
+  font-family: var(--font-serif), "Georgia", serif;
   font-size: clamp(3rem, 8vw, 9rem);
   font-weight: 300;
   line-height: 0.95;
@@ -106,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .t-heading {
-  font-family: var(--font-serif), 'Georgia', serif;
+  font-family: var(--font-serif), "Georgia", serif;
   font-size: clamp(2rem, 4vw, 5rem);
   font-weight: 300;
   line-height: 1.05;
@@ -114,7 +131,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .t-subheading {
-  font-family: var(--font-serif), 'Georgia', serif;
+  font-family: var(--font-serif), "Georgia", serif;
   font-size: clamp(1.25rem, 2.5vw, 2.25rem);
   font-weight: 300;
   line-height: 1.2;
@@ -123,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .t-label {
-  font-family: var(--font-mono), 'Courier New', monospace;
+  font-family: var(--font-mono), "Courier New", monospace;
   font-size: 0.6875rem;
   font-weight: 400;
   letter-spacing: 0.15em;
@@ -131,21 +148,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .t-body {
-  font-family: var(--font-sans), 'Helvetica Neue', sans-serif;
+  font-family: var(--font-sans), "Helvetica Neue", sans-serif;
   font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
   font-weight: 300;
   line-height: 1.8;
 }
 
 .t-mono {
-  font-family: var(--font-mono), 'Courier New', monospace;
+  font-family: var(--font-mono), "Courier New", monospace;
   font-size: clamp(0.8125rem, 1vw, 0.9375rem);
   font-weight: 300;
   line-height: 1.6;
 }
 
 .t-stat {
-  font-family: var(--font-serif), 'Georgia', serif;
+  font-family: var(--font-serif), "Georgia", serif;
   font-size: clamp(3rem, 7vw, 8rem);
   font-weight: 300;
   line-height: 1;
@@ -155,38 +172,45 @@ h1, h2, h3, h4, h5, h6 {
 /* ====================== CUSTOM CURSOR ====================== */
 .cursor-dot {
   position: fixed;
-  top: 0; left: 0;
-  width: 5px; height: 5px;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--parchment);
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
   will-change: transform, left, top;
-  transition: width 0.2s var(--ease-out-expo),
-              height 0.2s var(--ease-out-expo),
-              background 0.3s ease;
+  transition:
+    width 0.2s var(--ease-out-expo),
+    height 0.2s var(--ease-out-expo),
+    background 0.3s ease;
 }
 
 .cursor-ring {
   position: fixed;
-  top: 0; left: 0;
-  width: 32px; height: 32px;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
   border: 1px solid rgba(247, 245, 242, 0.35);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
   will-change: transform, left, top;
-  transition: width 0.4s var(--ease-out-expo),
-              height 0.4s var(--ease-out-expo),
-              border-color 0.3s ease,
-              background 0.3s ease;
+  transition:
+    width 0.4s var(--ease-out-expo),
+    height 0.4s var(--ease-out-expo),
+    border-color 0.3s ease,
+    background 0.3s ease;
 }
 
 .cursor-coords {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: 9997;
   font-family: var(--font-mono), monospace;
@@ -199,15 +223,34 @@ h1, h2, h3, h4, h5, h6 {
   transition: color 0.3s ease;
 }
 
-.cursor-dot.on-light { background: var(--ink); }
-.cursor-ring.on-light { border-color: rgba(21, 21, 21, 0.25); }
-.cursor-coords.on-light { color: rgba(21, 21, 21, 0.3); }
+.cursor-dot.on-light {
+  background: var(--ink);
+}
+.cursor-ring.on-light {
+  border-color: rgba(21, 21, 21, 0.25);
+}
+.cursor-coords.on-light {
+  color: rgba(21, 21, 21, 0.3);
+}
 
-.cursor-dot.hovering { width: 8px; height: 8px; background: var(--gold); }
-.cursor-ring.hovering { width: 52px; height: 52px; border-color: rgba(139, 115, 85, 0.5); background: rgba(139, 115, 85, 0.04); }
+.cursor-dot.hovering {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+}
+.cursor-ring.hovering {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(139, 115, 85, 0.5);
+  background: rgba(139, 115, 85, 0.04);
+}
 
-.cursor-dot.clicking { transform: translate(-50%, -50%) scale(0.5); }
-.cursor-ring.clicking { transform: translate(-50%, -50%) scale(0.8); }
+.cursor-dot.clicking {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+.cursor-ring.clicking {
+  transform: translate(-50%, -50%) scale(0.8);
+}
 
 /* ====================== SECTIONS ====================== */
 .section-void {
@@ -249,7 +292,8 @@ h1, h2, h3, h4, h5, h6 {
 /* ====================== PROGRESS BAR ====================== */
 .progress-bar {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   height: 1px;
   background: var(--gold);
   z-index: 200;
@@ -281,7 +325,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-dot {
-  width: 4px; height: 4px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   background: rgba(247, 245, 242, 0.25);
   transition: all 0.5s var(--ease-out-expo);
@@ -306,7 +351,9 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   color: rgba(247, 245, 242, 0.35);
   opacity: 0;
-  transition: opacity 0.3s var(--ease-out-expo), transform 0.3s var(--ease-out-expo);
+  transition:
+    opacity 0.3s var(--ease-out-expo),
+    transform 0.3s var(--ease-out-expo);
   white-space: nowrap;
   pointer-events: none;
 }
@@ -347,8 +394,12 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.45s var(--ease-out-expo);
 }
 
-.mag-btn-primary:hover .mag-btn-fill { transform: scaleX(1); }
-.mag-btn-primary:hover { border-color: var(--gold); }
+.mag-btn-primary:hover .mag-btn-fill {
+  transform: scaleX(1);
+}
+.mag-btn-primary:hover {
+  border-color: var(--gold);
+}
 
 .mag-btn-dark {
   padding: 1rem 2.25rem;
@@ -365,8 +416,13 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.45s var(--ease-out-expo);
 }
 
-.mag-btn-dark:hover .mag-btn-fill { transform: scaleX(1); }
-.mag-btn-dark:hover { color: var(--parchment); border-color: var(--ink); }
+.mag-btn-dark:hover .mag-btn-fill {
+  transform: scaleX(1);
+}
+.mag-btn-dark:hover {
+  color: var(--parchment);
+  border-color: var(--ink);
+}
 
 .mag-btn-ghost {
   padding: 0.75rem 1.5rem;
@@ -374,7 +430,9 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
-.mag-btn-ghost:hover { opacity: 1; }
+.mag-btn-ghost:hover {
+  opacity: 1;
+}
 
 .mag-btn-text {
   position: relative;
@@ -387,7 +445,9 @@ h1, h2, h3, h4, h5, h6 {
   transition: color 0.45s var(--ease-out-expo);
 }
 
-.mag-btn-dark:hover .mag-btn-text { color: var(--parchment); }
+.mag-btn-dark:hover .mag-btn-text {
+  color: var(--parchment);
+}
 
 /* ====================== SCROLL INDICATOR ====================== */
 .scroll-indicator {
@@ -409,9 +469,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .scroll-line::after {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: linear-gradient(to bottom, transparent, var(--gold), transparent);
@@ -419,19 +480,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes scroll-pulse {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(200%); }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
 }
 
 /* ====================== GEOMETRIC DECORATORS ====================== */
 .geo-mark {
-  width: 24px; height: 24px;
+  width: 24px;
+  height: 24px;
   position: relative;
   flex-shrink: 0;
 }
 
 .geo-mark::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 4px;
   border: 1px solid var(--gold);
@@ -439,7 +505,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .geo-mark::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 9px;
   background: var(--gold);
@@ -447,7 +513,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ====================== REVEAL ANIMATIONS ====================== */
-.reveal-wrap { overflow: hidden; display: inline-block; }
+.reveal-wrap {
+  overflow: hidden;
+  display: inline-block;
+}
 .reveal-inner {
   display: inline-block;
   transform: translateY(105%);
@@ -500,7 +569,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .threshold-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 12px; height: 12px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--gold);
   cursor: none;
@@ -514,7 +584,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .threshold-slider::-moz-range-thumb {
-  width: 12px; height: 12px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--gold);
   cursor: none;
@@ -522,8 +593,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ====================== SVG ICOSAHEDRON DIAGRAM ====================== */
-.ico-diagram line, .ico-diagram path {
-  transition: stroke 0.4s ease, stroke-width 0.3s ease, stroke-opacity 0.4s ease;
+.ico-diagram line,
+.ico-diagram path {
+  transition:
+    stroke 0.4s ease,
+    stroke-width 0.3s ease,
+    stroke-opacity 0.4s ease;
 }
 
 /* ====================== GRID OVERLAY ====================== */
@@ -544,22 +619,30 @@ h1, h2, h3, h4, h5, h6 {
 /* ====================== HEADER ====================== */
 .site-header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 150;
   display: flex;
   align-items: center;
   justify-content: center;
   /* Vertical padding only — horizontal handled by inner max-w-7xl container */
   padding: 1.375rem 2rem;
-  transition: background 0.6s ease, border-color 0.6s ease;
+  transition:
+    background 0.6s ease,
+    border-color 0.6s ease;
 }
 
 @media (min-width: 768px) {
-  .site-header { padding: 1.375rem 4rem; }
+  .site-header {
+    padding: 1.375rem 4rem;
+  }
 }
 
 @media (min-width: 1024px) {
-  .site-header { padding: 1.375rem 6rem; }
+  .site-header {
+    padding: 1.375rem 6rem;
+  }
 }
 
 .site-header.scrolled {
@@ -574,13 +657,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ====================== SELECTION ====================== */
-::selection { background: var(--gold); color: var(--void); }
+::selection {
+  background: var(--gold);
+  color: var(--void);
+}
 
 /* ====================== FOCUS ====================== */
-:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+}
 
 /* ====================== MOBILE ====================== */
 @media (max-width: 768px) {
-  .nav-dots { display: none; }
-  .cursor-dot, .cursor-ring, .cursor-coords { display: none; }
+  .nav-dots {
+    display: none;
+  }
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-coords {
+    display: none;
+  }
 }

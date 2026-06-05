@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 interface HeaderProps {
   isOnLight: boolean;
@@ -12,15 +12,17 @@ export default function Header({ isOnLight }: HeaderProps) {
   const { scrollY } = useScroll();
 
   useEffect(() => {
-    const unsub = scrollY.on('change', (v) => setScrolled(v > 80));
+    const unsub = scrollY.on("change", (v) => setScrolled(v > 80));
     return () => unsub();
   }, [scrollY]);
 
-  const textClass = isOnLight ? 'text-threshold-ink' : 'text-threshold-parchment';
+  const textClass = isOnLight
+    ? "text-threshold-ink"
+    : "text-threshold-parchment";
 
   return (
     <header
-      className={`site-header ${scrolled ? 'scrolled' : ''} ${isOnLight ? 'on-light' : ''}`}
+      className={`site-header ${scrolled ? "scrolled" : ""} ${isOnLight ? "on-light" : ""}`}
     >
       <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
         <motion.div
@@ -43,9 +45,9 @@ export default function Header({ isOnLight }: HeaderProps) {
           aria-label="Site sections"
         >
           {[
-            { label: 'IDEA', href: '#axiom' },
-            { label: 'SYSTEM', href: '#form' },
-            { label: 'IMPACT', href: '#return' },
+            { label: "IDEA", href: "#axiom" },
+            { label: "SYSTEM", href: "#form" },
+            { label: "IMPACT", href: "#return" },
           ].map((item) => (
             <a
               key={item.label}
@@ -63,7 +65,9 @@ export default function Header({ isOnLight }: HeaderProps) {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className={`t-mono hidden md:block text-[0.525rem] opacity-35 ${textClass}`}>
+          <span
+            className={`t-mono hidden md:block text-[0.525rem] opacity-35 ${textClass}`}
+          >
             idea · system · impact
           </span>
         </motion.div>
