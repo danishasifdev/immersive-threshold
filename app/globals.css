@@ -679,3 +679,18 @@ h6 {
     display: none;
   }
 }
+
+.edge-line-svg {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+}
+
+.animate-line {
+  animation: drawLine 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

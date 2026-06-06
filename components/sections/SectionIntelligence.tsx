@@ -72,8 +72,7 @@ export default function SectionForm({
       id="form"
       className="relative px-8 md:px-16 lg:px-24 py-28 md:py-40 min-h-screen"
       style={{
-        background: "rgba(239,236,232,0.82)",
-        backdropFilter: "blur(2px)",
+        backdropFilter: "blur(1px)",
       }}
       aria-label="System — tuning the product"
     >

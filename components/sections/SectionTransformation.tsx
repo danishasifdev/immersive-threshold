@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -98,6 +98,27 @@ export default function SectionEdge({
     if (next) next.scrollIntoView({ behavior: "smooth" });
   };
 
+  const ref = useRef(null);
+  const [active, setActive] = useState(false);
+  const [key, setKey] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setActive(false);
+          setKey((prev) => prev + 1);
+          setTimeout(() => setActive(true), 50);
+        } else {
+          setActive(false);
+        }
+      },
+      { threshold: 0.4 },
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
   return (
     <section
       ref={sectionRef}
@@ -115,9 +136,10 @@ export default function SectionEdge({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
-          <div className="md:col-span-5 edge-body">
+          <div ref={ref} className="md:col-span-5 edge-body">
             <div className="relative" aria-label="Relationship network diagram">
               <svg
+                key={key} // 🔥 THIS is what makes it restart cleanly
                 viewBox="0 0 320 360"
                 className="w-full"
                 style={{ maxHeight: "460px" }}
@@ -126,7 +148,7 @@ export default function SectionEdge({
                 {CONNECTIONS.map(([a, b], i) => (
                   <line
                     key={i}
-                    className="edge-line-svg"
+                    className={`edge-line-svg ${active ? "animate-line" : ""}`}
                     x1={NODES_2D[a][0]}
                     y1={NODES_2D[a][1]}
                     x2={NODES_2D[b][0]}
@@ -134,7 +156,9 @@ export default function SectionEdge({
                     stroke={i < 5 ? "#8B7355" : "var(--ink)"}
                     strokeWidth={i < 5 ? "1.2" : "0.7"}
                     strokeOpacity={i < 5 ? 0.7 : 0.25}
-                    strokeLinecap="round"
+                    style={{
+                      animationDelay: active ? `${i * 0.08}s` : "0s",
+                    }}
                   />
                 ))}
 
